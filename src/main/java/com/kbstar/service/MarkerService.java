@@ -1,25 +1,20 @@
 package com.kbstar.service;
-
 import com.kbstar.dto.Marker;
 import com.kbstar.mapper.MarkerMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
+@Slf4j
 public class MarkerService implements KBService<Integer, Marker> {
 
     @Autowired
     MarkerMapper mapper; // Marke의 DB와 연결된 dao 사용하겠다고 쓰기.
 
-    /**
-     * 등록 & 가입 진행
-     * argument : object
-     * return : null
-     *
-     * @param marker
-     **/
     @Override
     public void register(Marker marker) throws Exception {
         mapper.insert(marker); // dao에 insert하겠다. dto데이터를

@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
 <style>
     #map03 > #map {
         width : 550px;
@@ -10,6 +9,7 @@
         border : 2px solid greenyellow;
     }
 </style>
+
 <script>
     let map03 = {
         map:null,
@@ -41,6 +41,7 @@
             map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
             var zoomControl = new kakao.maps.ZoomControl();
             map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
             //map marker
             var markerPosition  = new kakao.maps.LatLng(37.5456385, 127.0534575);
             var marker = new kakao.maps.Marker({
@@ -66,6 +67,7 @@
                 url:'/markers',
                 data:{'loc': loc},
                 success: function (data) {
+                    alert(data);
                     map03.displaymarkers(data);
                 },
             });
@@ -76,7 +78,6 @@
                 var imageSize = new kakao.maps.Size(20, 30);
                 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
                 var markerPosition = new kakao.maps.LatLng( positions[i].lat, positions[i].lng);
-
                 var marker = new kakao.maps.Marker({
                     map: map,
                     position : markerPosition,
@@ -120,9 +121,13 @@
         }
 
     };
+
+
     $(function(){
         map03.init();
     });
+
+
 </script>
 
 <div class="col-sm-8 text-left">

@@ -8,7 +8,7 @@
 <!--작성예시. CustMapper(는,kbmapper 인터페이스에서 상속받았지) 에서 사용할 함수들의 명칭이 아래 적힌다. -->
 
     <select id="select" parameterType="int" resultType="marker">
-        SELECT * FROM marker WHERE id=#{id}
+        SELECT * FROM marker WHERE loc=#{loc}
     </select>
     <select id="selectall" resultType="marker">
         SELECT * FROM marker
